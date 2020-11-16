@@ -86,6 +86,10 @@ void loop() {
 
 // Custom functions
 // Motor
+// Gets the char buffer, converts it in an integer,
+// adds a temperature and humidity coefficient. Checks
+// if the motor runs forward or backwards
+// and writes the motor pin
 void runMotor(float tempCoef, float humCoef) {
   dataNumber = 0;
   dataNumber = atoi(receivedChars);
@@ -112,6 +116,8 @@ void updateDisplay() {
 }
  
 // Serial
+// Receives chars from the Serial link, puts it in a buffer
+// and closes the buffer if it is terminated by a null character '\0'
 void recvWithEndMarker() {
   static byte ndx = 0;
   char endMarker = '\n';
